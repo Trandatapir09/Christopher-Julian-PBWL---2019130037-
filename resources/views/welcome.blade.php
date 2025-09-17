@@ -31,7 +31,8 @@ body {
   color: white;
 }
 
-table { border-collapse: collapse; width: 70%; }
+table 
+      { border-collapse: collapse; width: 70%; }
         th, td { border: 1px solid #333; padding: 8px; text-align: center; }
         th { background-color: #f2f2f2; }
 
@@ -55,6 +56,16 @@ table { border-collapse: collapse; width: 70%; }
             <th>alamat</th>
             <th>Status</th>
         </tr>
+        @foreach($mahasiswa as $mhs)
+        <tr>
+            <td>{{ $mhs->id }}</td>
+            <td>{{ $mhs->nama }}</td>
+            <td>{{ $mhs->jurusan }}</td>
+            <td>{{ $mhs->umur }}</td>
+            <td>{{ $mhs->notelp }}</td>
+        </tr>
+        @endforeach
+        
        
     </table>
   </body>
