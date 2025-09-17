@@ -30,33 +30,19 @@ body {
   background-color: #04AA6D;
   color: white;
 }
-
-table { border-collapse: collapse; width: 70%; }
-        th, td { border: 1px solid #333; padding: 8px; text-align: center; }
-        th { background-color: #f2f2f2; }
-
 </style>
   </head>
   <body>
   <div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="table">Table</a>
+  <a href="#home">Home</a>
+  <a class="active" href="table">Table</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
 </div>
 
-    <h2>Data Mahasiswa</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nama</th>
-            <th>Jurusan</th>
-            <th>Umur</th>
-            <th>No Telp</th>
-            <th>alamat</th>
-            <th>Status</th>
-        </tr>
-       
-    </table>
+<div style="padding-left:16px">
+  <h2>Top Navigation Example</h2>
+  <p>Some content..</p>
+</div>
   </body>
 </html>
