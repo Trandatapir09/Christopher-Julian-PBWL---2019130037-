@@ -41,7 +41,7 @@ table
   <body>
   <div class="topnav">
   <a class="active" href="#">Home</a>
-  <a href="#">Edit</a>
+  <a href="{{ url('/edit') }}">Edit</a>
   <a href="#">View</a>
 </div>
 
@@ -63,6 +63,8 @@ table
             <td>{{ $mhs->jurusan }}</td>
             <td>{{ $mhs->umur }}</td>
             <td>{{ $mhs->notelp }}</td>
+            <td>{{ $mhs->alamat }}</td>
+            <td>{{ $mhs->status }}</td>
         </tr>
         @endforeach
         

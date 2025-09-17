@@ -18,3 +18,7 @@ Route::get('/', function () {
     $mahasiswa = Mahasiswa::all(); 
     return view('welcome', compact('mahasiswa'));
 });
+
+Route::get('/edit', function () {
+    return view('edit');
+});

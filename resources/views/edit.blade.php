@@ -13,7 +13,7 @@ body {
 }
 
 .topnav a {
-  float: left;
+  float: right;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -27,22 +27,27 @@ body {
 }
 
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #000000ff;
   color: white;
 }
+
+table 
+      { border-collapse: collapse; width: 70%; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
+
 </style>
   </head>
   <body>
   <div class="topnav">
-  <a href="#home">Home</a>
-  <a class="active" href="table">Table</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+  <a href="{{ url('/') }}">Home</a>
+  <a class="active" href="{{ url('/edit') }}">Edit</a>
+  <a href="#">View</a>
 </div>
 
-<div style="padding-left:16px">
-  <h2>Top Navigation Example</h2>
-  <p>Some content..</p>
-</div>
+    <h2>Edit</h2>
+       
+       
+    </table>
   </body>
 </html>
