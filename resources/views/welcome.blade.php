@@ -13,7 +13,7 @@ body {
 }
 
 .topnav a {
-  float: left;
+  float: right;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -27,7 +27,7 @@ body {
 }
 
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #000000ff;
   color: white;
 }
 
@@ -39,10 +39,9 @@ table { border-collapse: collapse; width: 70%; }
   </head>
   <body>
   <div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="table">Table</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+  <a class="active" href="#">Home</a>
+  <a href="#">Edit</a>
+  <a href="#">View</a>
 </div>
 
     <h2>Data Mahasiswa</h2>
