@@ -9,4 +9,6 @@ class Mahasiswa extends Model
 {
     protected $table = 'mahasiswa';
     protected $fillable = ['id', 'nama', 'jurusan', 'umur','alamat', 'notelp', 'status'];
+
+    public $timestamps = false;
 }

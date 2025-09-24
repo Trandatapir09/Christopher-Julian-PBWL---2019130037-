@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Mahasiswa</title>
+  <title>Tambah Mahasiswa</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -20,40 +20,40 @@
 
   <div class="container">
     <div class="card shadow-lg rounded-4">
-      <div class="card-header bg-warning text-dark fw-bold">
-        ✏️ Edit Data Mahasiswa
+      <div class="card-header bg-success text-white fw-bold">
+        ➕ Tambah Data Mahasiswa
       </div>
       <div class="card-body">
-        <form action="{{ route('mahasiswa.update', $mahasiswa->id) }}" method="POST">
+        <form action="{{ route('mahasiswa.store') }}" method="POST">
           @csrf
           <div class="mb-3">
             <label class="form-label">Nama</label>
-            <input type="text" name="nama" value="{{ $mahasiswa->nama }}" class="form-control" required>
+            <input type="text" name="nama" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Jurusan</label>
-            <input type="text" name="jurusan" value="{{ $mahasiswa->jurusan }}" class="form-control" required>
+            <input type="text" name="jurusan" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Umur</label>
-            <input type="number" name="umur" value="{{ $mahasiswa->umur }}" class="form-control" required>
+            <input type="number" name="umur" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Alamat</label>
-            <input type="text" name="alamat" value="{{ $mahasiswa->alamat }}" class="form-control" required>
+            <input type="text" name="alamat" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">No. Telp</label>
-            <input type="text" name="notelp" value="{{ $mahasiswa->notelp }}" class="form-control" required>
+            <input type="text" name="notelp" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Status</label>
             <select name="status" class="form-select">
-              <option value="aktif" {{ $mahasiswa->status == 'aktif' ? 'selected' : '' }}>Aktif</option>
-              <option value="tidak aktif" {{ $mahasiswa->status == 'tidak aktif' ? 'selected' : '' }}>Tidak Aktif</option>
+              <option value="aktif">Aktif</option>
+              <option value="tidak aktif">Tidak Aktif</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-success">💾 Simpan Perubahan</button>
+          <button type="submit" class="btn btn-success">💾 Simpan</button>
           <a href="{{ route('welcome') }}" class="btn btn-secondary">⬅️ Kembali</a>
         </form>
       </div>
