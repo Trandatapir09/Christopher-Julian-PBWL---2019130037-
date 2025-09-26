@@ -11,7 +11,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="{{ route('welcome') }}">Sistem Mahasiswa</a>
+      <a class="navbar-brand fw-bold" href="{{ route('welcome') }}">Database Mahasiswa</a>
       <div class="d-flex">
         <a href="{{ route('logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
       </div>
@@ -24,15 +24,22 @@
         ➕ Tambah Data Mahasiswa
       </div>
       <div class="card-body">
-        <form action="{{ route('mahasiswa.store') }}" method="POST">
+        <form action="{{ route('mahasiswa.store') }}" method="POST" enctype="multipart/form-data">
           @csrf
+          <div class="mb-3">
+            <label class="form-label">Id</label>
+            <input type="text" name="id" class="form-control" required>
+          </div>
           <div class="mb-3">
             <label class="form-label">Nama</label>
             <input type="text" name="nama" class="form-control" required>
           </div>
           <div class="mb-3">
             <label class="form-label">Jurusan</label>
-            <input type="text" name="jurusan" class="form-control" required>
+            <select name="jurusan" class="form-select" required>
+                <option value="Informatika">Informatika</option>
+                <option value="Sistem Informasi">Sistem Informasi</option>
+            </select>
           </div>
           <div class="mb-3">
             <label class="form-label">Umur</label>
@@ -53,6 +60,12 @@
               <option value="tidak aktif">Tidak Aktif</option>
             </select>
           </div>
+
+          <div class="mb-3">
+            <label class="form-label">Foto</label>
+            <input type="file" name="foto" class="form-control">
+          </div>
+
           <button type="submit" class="btn btn-success">💾 Simpan</button>
           <a href="{{ route('welcome') }}" class="btn btn-secondary">⬅️ Kembali</a>
         </form>

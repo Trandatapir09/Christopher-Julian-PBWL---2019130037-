@@ -24,8 +24,17 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['authcheck'])->group(function () {
     Route::get('/', [MahasiswaController::class, 'index'])->name('welcome');
     Route::get('/{id}/edit', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
-    Route::post('/{id}/update', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+
     Route::get('/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
-Route::post('/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+    Route::post('/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+    Route::delete('/{id}/delete', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');
+    Route::get('/admin/password', [AuthController::class, 'showChangePassword'])->name('admin.password');
+    Route::post('/admin/password', [AuthController::class, 'changePassword'])->name('admin.password.update');
+    Route::put('/{id}/update', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+    Route::get('/admin/profile', [AuthController::class, 'showProfile'])->name('admin.profile');
+    Route::post('/admin/profile', [AuthController::class, 'updateProfile'])->name('admin.profile.update');
+
+
+
 });
 

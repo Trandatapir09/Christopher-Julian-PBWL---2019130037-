@@ -24,28 +24,40 @@
         ✏️ Edit Data Mahasiswa
       </div>
       <div class="card-body">
-        <form action="{{ route('mahasiswa.update', $mahasiswa->id) }}" method="POST">
+
+        <!-- Form Update -->
+        <form action="{{ route('mahasiswa.update', $mahasiswa->id) }}" method="POST" enctype="multipart/form-data">
           @csrf
+          @method('PUT')
+
           <div class="mb-3">
             <label class="form-label">Nama</label>
             <input type="text" name="nama" value="{{ $mahasiswa->nama }}" class="form-control" required>
           </div>
+
           <div class="mb-3">
             <label class="form-label">Jurusan</label>
-            <input type="text" name="jurusan" value="{{ $mahasiswa->jurusan }}" class="form-control" required>
+            <select name="jurusan" class="form-select">
+              <option value="Informatika" {{ $mahasiswa->jurusan == 'Informatika' ? 'selected' : '' }}>Informatika</option>
+              <option value="Sistem Informasi" {{ $mahasiswa->jurusan == 'Sistem Informasi' ? 'selected' : '' }}>Sistem Informasi</option>
+            </select>
           </div>
+
           <div class="mb-3">
             <label class="form-label">Umur</label>
             <input type="number" name="umur" value="{{ $mahasiswa->umur }}" class="form-control" required>
           </div>
+
           <div class="mb-3">
             <label class="form-label">Alamat</label>
             <input type="text" name="alamat" value="{{ $mahasiswa->alamat }}" class="form-control" required>
           </div>
+
           <div class="mb-3">
             <label class="form-label">No. Telp</label>
             <input type="text" name="notelp" value="{{ $mahasiswa->notelp }}" class="form-control" required>
           </div>
+
           <div class="mb-3">
             <label class="form-label">Status</label>
             <select name="status" class="form-select">
@@ -53,9 +65,28 @@
               <option value="tidak aktif" {{ $mahasiswa->status == 'tidak aktif' ? 'selected' : '' }}>Tidak Aktif</option>
             </select>
           </div>
+
+          <div class="mb-3">
+            <label for="foto" class="form-label">Foto</label><br>
+            @if ($mahasiswa->foto)
+              <img src="{{ asset('storage/'.$mahasiswa->foto) }}" width="100" class="mb-2">
+            @endif
+            <input type="file" name="foto" class="form-control">
+          </div>
+
           <button type="submit" class="btn btn-success">💾 Simpan Perubahan</button>
           <a href="{{ route('welcome') }}" class="btn btn-secondary">⬅️ Kembali</a>
         </form>
+
+        <hr>
+
+        <!-- Form Delete -->
+        <form action="{{ route('mahasiswa.destroy', $mahasiswa->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger btn-lg">🗑️ Hapus</button>
+        </form>
+
       </div>
     </div>
   </div>

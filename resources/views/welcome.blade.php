@@ -11,9 +11,12 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">Sistem Mahasiswa</a>
+            <a class="navbar-brand fw-bold" href="/">Database Mahasiswa</a>
             <div class="d-flex">
+                <a href="{{ route('admin.password') }}" class="btn btn-outline-light btn-sm me-2">Admin</a>
+                    
                 <a href="{{ route('logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
+                
             </div>
         </div>
     </nav>
@@ -47,6 +50,7 @@
                             <th>Alamat</th>
                             <th>No. Telp</th>
                             <th>Status</th>
+                            <th>Foto</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -64,6 +68,13 @@
                                         <span class="badge bg-success">Aktif</span>
                                     @else
                                         <span class="badge bg-secondary">Tidak Aktif</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($mhs->foto)
+                                        <img src="{{ asset('storage/' . $mhs->foto) }}" width="50" height="50" class="rounded-circle">
+                                    @else
+                                        <span class="text-muted">Tidak ada</span>
                                     @endif
                                 </td>
                                 <td>
